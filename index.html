@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Kamran Ansari | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+        :root {
+            --accent: 234 179 8;
+        }
+
+        .tail-container {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: rgb(234 179 8);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            transform: translateY(-3px) scale(1.08);
+            background-color: rgb(234 179 8 / 0.2);
+        }
+
+        .section-header {
+            position: relative;
+        }
+
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, rgb(234 179 8), transparent);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .typing {
+            overflow: hidden;
+            border-right: 3px solid rgb(234 179 8);
+            white-space: nowrap;
+            animation: typing 3.5s steps(30, end) forwards,
+                blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: rgb(234 179 8)
+            }
+        }
+
+        .modal {
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            0% {
+                transform: scale(0.6);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="tail-container bg-zinc-950 text-white overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-9 h-9 bg-yellow-400 rounded-2xl flex items-center justify-center text-zinc-950 font-bold text-2xl heading-font">
+                    KA</div>
+                <div>
+                    <span class="text-2xl font-semibold tracking-tighter heading-font">Kamran</span>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" onclick="navigateTo('home')"
+                    class="nav-link text-zinc-400 hover:text-white active">HOME</a>
+                <a href="#about" onclick="navigateTo('about')" class="nav-link text-zinc-400 hover:text-white">ABOUT</a>
+                <a href="#skills" onclick="navigateTo('skills')"
+                    class="nav-link text-zinc-400 hover:text-white">SKILLS</a>
+                <a href="#projects" onclick="navigateTo('projects')"
+                    class="nav-link text-zinc-400 hover:text-white">PROJECTS</a>
+                <a href="#certificates" onclick="navigateTo('certificates')"
+                    class="nav-link text-zinc-400 hover:text-white">CERTS</a>
+                <a href="#education" onclick="navigateTo('education')"
+                    class="nav-link text-zinc-400 hover:text-white">EDUCATION</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleDarkMode()" id="theme-toggle"
+                    class="w-10 h-10 flex items-center justify-center rounded-2xl bg-zinc-900 hover:bg-zinc-800 transition-colors">
+                    <i class="fas fa-moon text-yellow-400"></i>
+                </button>
+                <a href="https://github.com/Kamran0018" target="_blank"
+                    class="hidden md:flex items-center gap-2 bg-white text-zinc-900 px-5 py-2.5 rounded-3xl font-semibold text-sm hover:bg-yellow-300 transition-all">
+                    <i class="fab fa-github"></i>
+                    <span>GITHUB</span>
+                </a>
+                <button onclick="toggleMobileMenu()"
+                    class="md:hidden w-10 h-10 flex items-center justify-center text-2xl">
+                    <i id="menu-icon" class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-zinc-950 z-50 pt-20 px-6">
+            <div class="flex flex-col gap-6 text-xl font-medium">
+                <a href="#home" onclick="navigateTo('home');toggleMobileMenu()" class="py-2">Home</a>
+                <a href="#about" onclick="navigateTo('about');toggleMobileMenu()" class="py-2">About</a>
+                <a href="#skills" onclick="navigateTo('skills');toggleMobileMenu()" class="py-2">Skills</a>
+                <a href="#projects" onclick="navigateTo('projects');toggleMobileMenu()" class="py-2">Projects</a>
+                <a href="#certificates" onclick="navigateTo('certificates');toggleMobileMenu()"
+                    class="py-2">Certificates</a>
+                <a href="#education" onclick="navigateTo('education');toggleMobileMenu()" class="py-2">Education</a>
+                <div class="pt-6 border-t border-zinc-800">
+                    <a href="https://www.linkedin.com/in/kamran-ansari01/" target="_blank"
+                        class="flex items-center gap-3 text-yellow-400">
+                        <i class="fab fa-linkedin text-3xl"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div
+                    class="inline-flex items-center gap-2 bg-zinc-900 border border-yellow-400/30 px-5 py-2 rounded-3xl text-sm">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    Open to opportunities • 2026
+                </div>
+
+                <h1 class="text-6xl md:text-7xl font-bold leading-none tracking-tighter heading-font">
+                    Hi, I'm <span class="text-yellow-400">Md Kamran Ansari</span>
+                </h1>
+
+                <div class="text-3xl md:text-4xl text-zinc-400 font-medium">
+                    Full-Stack Developer &amp; ML Enthusiast
+                    <span id="typing" class="typing inline-block text-yellow-400 text-4xl md:text-5xl">|</span>
+                </div>
+
+                <p class="text-xl text-zinc-400 max-w-lg">
+                    Building scalable web applications with Django &amp; React •
+                    Machine Learning models that actually work •
+                    100+ LeetCode problems solved
+                </p>
+
+                <div class="flex items-center gap-4">
+                    <a href="#projects" onclick="navigateTo('projects')"
+                        class="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 transition-all text-zinc-950 font-semibold text-lg rounded-3xl flex items-center gap-3 group">
+                        VIEW PROJECTS
+                        <i class="fas fa-arrow-right group-active:rotate-45 transition"></i>
+                    </a>
+
+                    <button onclick="downloadCV()"
+                        class="px-8 py-4 border border-yellow-400/50 hover:border-yellow-400 transition-all font-semibold text-lg rounded-3xl flex items-center gap-3">
+                        <i class="fas fa-download"></i>
+                        DOWNLOAD CV
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-8 text-sm">
+                    <a href="https://www.linkedin.com/in/kamran-ansari01/" target="_blank"
+                        class="flex items-center gap-2 hover:text-yellow-400 transition">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                        <span>LINKEDIN</span>
+                    </a>
+                    <a href="https://github.com/Kamran0018" target="_blank"
+                        class="flex items-center gap-2 hover:text-yellow-400 transition">
+                        <i class="fab fa-github text-2xl"></i>
+                        <span>GITHUB</span>
+                    </a>
+                    <a href="mailto:mdkamran7506@gmail.com"
+                        class="flex items-center gap-2 hover:text-yellow-400 transition">
+                        <i class="fas fa-envelope text-2xl"></i>
+                        <span>EMAIL</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Image -->
+            <div class="flex justify-center md:justify-end">
+                <div class="relative">
+                    <div
+                        class="absolute -inset-6 bg-gradient-to-br from-yellow-400 to-transparent rounded-[4rem] -rotate-6 opacity-30">
+                    </div>
+                    <img id="profile-img" src="https://picsum.photos/id/64/600/600" alt="Md Kamran Ansari"
+                        class="w-80 md:w-96 rounded-3xl shadow-2xl border-8 border-zinc-900 relative z-10 object-cover">
+                    <div
+                        class="absolute -bottom-4 -right-4 bg-zinc-900 border border-yellow-400 rounded-2xl px-6 py-3 text-sm flex items-center gap-3">
+                        <div class="text-green-400">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Available for Freelance</div>
+                            <div class="text-xs text-zinc-500">Ludhiana • Punjab</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest opacity-60">
+            <span>SCROLL TO EXPLORE</span>
+            <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 border-t border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5">
+                    <div class="sticky top-28">
+                        <span class="uppercase text-yellow-400 text-sm font-medium tracking-[3px]">CHAPTER 01</span>
+                        <h2 class="text-5xl heading-font font-bold mt-3 leading-none">The Story Behind the Code</h2>
+                    </div>
+                </div>
+                <div class="md:col-span-7 text-lg text-zinc-400 leading-relaxed space-y-6">
+                    <p>
+                        Computer Science undergrad at Lovely Professional University with a passion for turning ideas
+                        into production-ready applications.
+                    </p>
+                    <p>
+                        From building a complete Restaurant Management System in Django to deploying a real-time Laptop
+                        Price Predictor using scikit-learn,
+                        I love solving complex problems with clean, scalable code.
+                    </p>
+                    <div class="pt-6 flex gap-8">
+                        <div>
+                            <div class="text-4xl font-semibold text-yellow-400">100+</div>
+                            <div class="text-sm text-zinc-500">LeetCode Problems</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-semibold text-yellow-400">5</div>
+                            <div class="text-sm text-zinc-500">Certificates</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-semibold text-yellow-400">3</div>
+                            <div class="text-sm text-zinc-500">Live Projects</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="px-5 py-2 bg-yellow-400/10 text-yellow-400 text-sm font-medium rounded-3xl">CHAPTER 02 •
+                    WEAPONS</span>
+                <h2 class="text-5xl heading-font font-bold mt-6">Skills &amp; Technologies</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Languages -->
+                <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-code text-3xl text-yellow-400"></i>
+                        <h3 class="text-xl font-semibold">Languages</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">C++</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">Java</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">Python</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">JavaScript</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">C</span>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-globe text-3xl text-yellow-400"></i>
+                        <h3 class="text-xl font-semibold">Frontend</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">HTML5</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">Tailwind
+                            CSS</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">React</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Backend & DB -->
+                <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-server text-3xl text-yellow-400"></i>
+                        <h3 class="text-xl font-semibold">Backend &amp; Database</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">Django</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">MySQL</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">Python</span>
+                    </div>
+                </div>
+
+                <!-- ML / Data -->
+                <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-brain text-3xl text-yellow-400"></i>
+                        <h3 class="text-xl font-semibold">ML &amp; Data</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">Pandas</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">scikit-learn</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">Matplotlib</span>
+                        <span
+                            class="skill-pill bg-zinc-900 text-white px-6 py-3 rounded-2xl text-sm font-medium">NumPy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-semibold mb-8">Soft Skills</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-8 py-4 bg-zinc-800 rounded-3xl text-sm">Problem Solving</span>
+                    <span class="px-8 py-4 bg-zinc-800 rounded-3xl text-sm">Team Player</span>
+                    <span class="px-8 py-4 bg-zinc-800 rounded-3xl text-sm">Time Management</span>
+                    <span class="px-8 py-4 bg-zinc-800 rounded-3xl text-sm">Adaptability</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="uppercase text-yellow-400 text-sm tracking-widest">CHAPTER 03 • SHOWCASE</span>
+                    <h2 class="text-5xl heading-font font-bold mt-2">Featured Projects</h2>
+                </div>
+                <a href="https://github.com/Kamran0018" target="_blank"
+                    class="hidden md:flex items-center gap-2 text-yellow-400 hover:text-white">
+                    ALL PROJECTS ON GITHUB <span class="text-2xl">→</span>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div onclick="showProjectModal(0)"
+                    class="project-card cursor-pointer bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div
+                        class="h-60 bg-gradient-to-br from-yellow-400/20 to-transparent flex items-center justify-center">
+                        <span class="text-6xl text-yellow-400/30 font-black heading-font">R</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs text-yellow-400 mb-2">OCT 2025 • FULL-STACK</div>
+                        <h3 class="text-2xl font-semibold mb-3">Restaurant Management Web App</h3>
+                        <p class="text-zinc-400 line-clamp-3">Dynamic menu management, secure auth, order processing
+                            with Django + MySQL + Tailwind.</p>
+                        <div class="flex gap-2 mt-6">
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">Django</span>
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">MySQL</span>
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div onclick="showProjectModal(1)"
+                    class="project-card cursor-pointer bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div
+                        class="h-60 bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center">
+                        <span class="text-6xl text-blue-400/30 font-black heading-font">LMS</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs text-blue-400 mb-2">MAY 2025 • JAVA</div>
+                        <h3 class="text-2xl font-semibold mb-3">Student Record Management System</h3>
+                        <p class="text-zinc-400 line-clamp-3">Swing GUI, file handling, CRUD operations using OOP and
+                            LinkedList.</p>
+                        <div class="flex gap-2 mt-6">
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">Java</span>
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">Swing</span>
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">File I/O</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div onclick="showProjectModal(2)"
+                    class="project-card cursor-pointer bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                    <div
+                        class="h-60 bg-gradient-to-br from-emerald-500/20 to-transparent flex items-center justify-center">
+                        <span class="text-6xl text-emerald-400/30 font-black heading-font">₹</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs text-emerald-400 mb-2">MAR 2025 • ML</div>
+                        <h3 class="text-2xl font-semibold mb-3">Laptop Price Predictor</h3>
+                        <p class="text-zinc-400 line-clamp-3">Streamlit web app with regression model using scikit-learn
+                            &amp; EDA.</p>
+                        <div class="flex gap-2 mt-6">
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">Python</span>
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">scikit-learn</span>
+                            <span class="text-xs px-4 py-1 bg-zinc-800 rounded-full">Streamlit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES & TRAINING -->
+    <section id="certificates" class="py-24 bg-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl heading-font font-bold text-center mb-16">Training &amp; Certifications</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-zinc-950 rounded-3xl p-8 border border-zinc-800">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="uppercase text-xs tracking-widest text-yellow-400">TRAINING</div>
+                            <div class="text-2xl font-semibold mt-3">Fundamentals of Data Structures</div>
+                            <div class="text-zinc-400 mt-1">Lovely Professional University • Jul 2025</div>
+                        </div>
+                        <i class="fas fa-trophy text-4xl text-yellow-400/30"></i>
+                    </div>
+                </div>
+
+                <div onclick="window.open('https://nptel.ac.in/', '_blank')"
+                    class="cursor-pointer bg-zinc-950 rounded-3xl p-8 border border-zinc-800 hover:border-yellow-400 transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="uppercase text-xs tracking-widest text-sky-400">NPTEL</div>
+                            <div class="text-2xl font-semibold mt-3">Cloud Computing</div>
+                            <div class="text-zinc-400 mt-1">Nov 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="window.open('https://www.infosys.com/', '_blank')"
+                    class="cursor-pointer bg-zinc-950 rounded-3xl p-8 border border-zinc-800 hover:border-yellow-400 transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="uppercase text-xs tracking-widest text-pink-400">INFOSYS</div>
+                            <div class="text-2xl font-semibold mt-3">Master Generative AI</div>
+                            <div class="text-zinc-400 mt-1">Aug 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-950 rounded-3xl p-8 border border-zinc-800">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="uppercase text-xs tracking-widest text-emerald-400">COURsera</div>
+                            <div class="text-xl font-semibold mt-3">Bits &amp; Bytes (Google)</div>
+                            <div class="text-xl font-semibold mt-1">Fundamentals of Networking</div>
+                            <div class="text-zinc-400 mt-1">Sep 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="py-24">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl heading-font font-bold mb-16">Achievements</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div
+                    class="bg-gradient-to-br from-yellow-400/10 to-transparent border border-yellow-400/30 rounded-3xl p-10">
+                    <i class="fas fa-medal text-7xl text-yellow-400 mb-6"></i>
+                    <div class="text-6xl font-bold text-yellow-400">100+</div>
+                    <div class="text-2xl font-medium mt-2">DSA Problems Solved</div>
+                    <div class="text-zinc-400 mt-4">LeetCode • Optimized solutions for time &amp; space complexity</div>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-cyan-400/10 to-transparent border border-cyan-400/30 rounded-3xl p-10">
+                    <i class="fas fa-award text-7xl text-cyan-400 mb-6"></i>
+                    <div class="text-6xl font-bold text-cyan-400">1300+</div>
+                    <div class="text-2xl font-medium mt-2">Practice Challenges</div>
+                    <div class="text-zinc-400 mt-4">freeCodeCamp Responsive Web Design Certification</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="py-24 bg-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl heading-font font-bold text-center mb-16">Education</h2>
+
+            <div class="space-y-12">
+                <!-- LPU -->
+                <div class="flex flex-col md:flex-row gap-8 md:items-start">
+                    <div class="md:w-48 flex-shrink-0">
+                        <div class="text-yellow-400 text-sm font-medium">AUG 2023 — PRESENT</div>
+                    </div>
+                    <div class="flex-1 bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
+                        <div class="flex justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold">Bachelor of Technology</div>
+                                <div class="text-xl text-zinc-400">Computer Science &amp; Engineering</div>
+                                <div class="text-emerald-400 mt-1">CGPA: 7.06</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-zinc-500">Lovely Professional University</div>
+                                <div class="text-xs text-zinc-500">Phagwara, Punjab</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intermediate -->
+                <div class="flex flex-col md:flex-row gap-8 md:items-start">
+                    <div class="md:w-48 flex-shrink-0">
+                        <div class="text-yellow-400 text-sm font-medium">JUN 2022 — MAR 2023</div>
+                    </div>
+                    <div class="flex-1 bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
+                        <div class="flex justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold">Intermediate</div>
+                                <div class="text-emerald-400 mt-1">Percentage: 78%</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-zinc-500">DAV PG College</div>
+                                <div class="text-xs text-zinc-500">Siwan, Bihar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Matric -->
+                <div class="flex flex-col md:flex-row gap-8 md:items-start">
+                    <div class="md:w-48 flex-shrink-0">
+                        <div class="text-yellow-400 text-sm font-medium">APR 2020 — MAR 2021</div>
+                    </div>
+                    <div class="flex-1 bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
+                        <div class="flex justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold">Matriculation</div>
+                                <div class="text-emerald-400 mt-1">Percentage: 84%</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-zinc-500">Don Bosco High School</div>
+                                <div class="text-xs text-zinc-500">Siwan, Bihar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer class="bg-black py-20 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-8">
+                        <div
+                            class="w-10 h-10 bg-yellow-400 rounded-2xl flex items-center justify-center text-3xl text-zinc-950">
+                            KA</div>
+                        <span class="text-3xl font-bold heading-font">Md Kamran Ansari</span>
+                    </div>
+                    <p class="text-zinc-400">Passionate about building things that matter.<br>Let's create something
+                        amazing together.</p>
+
+                    <div class="mt-12 flex gap-6">
+                        <a href="https://www.linkedin.com/in/kamran-ansari01/" target="_blank"
+                            class="text-4xl hover:text-yellow-400 transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Kamran0018" target="_blank"
+                            class="text-4xl hover:text-yellow-400 transition"><i class="fab fa-github"></i></a>
+                        <a href="mailto:mdkamran7506@gmail.com" class="text-4xl hover:text-yellow-400 transition"><i
+                                class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="text-right md:text-left">
+                    <div class="text-sm uppercase tracking-widest mb-6">Get in touch</div>
+                    <a href="mailto:mdkamran7506@gmail.com"
+                        class="block text-2xl hover:text-yellow-400 transition">mdkamran7506@gmail.com</a>
+                    <a href="tel:+918709054237" class="block text-2xl mt-3 hover:text-yellow-400 transition">+91 87090
+                        54237</a>
+
+                    <button onclick="downloadCV()"
+                        class="mt-12 w-full md:w-auto px-12 py-6 bg-white text-zinc-900 font-bold text-lg rounded-3xl hover:bg-yellow-300 flex items-center justify-center gap-4">
+                        <i class="fas fa-file-pdf"></i>
+                        DOWNLOAD FULL CV (PDF)
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center text-xs text-zinc-600 mt-20">
+                © 2026 Md Kamran Ansari • Built with ❤️ and lots of Tailwind + JS
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT MODAL -->
+    <div id="project-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100] p-6">
+        <div class="modal bg-zinc-900 max-w-2xl w-full rounded-3xl overflow-hidden">
+            <div class="p-8" id="modal-content">
+                <!-- JS will fill this -->
+            </div>
+            <div class="border-t border-zinc-700 p-6 flex justify-end">
+                <button onclick="closeModal()"
+                    class="px-8 py-4 text-sm font-medium border border-zinc-700 hover:bg-zinc-800 rounded-2xl">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script already loaded via CDN
+
+        function navigateTo(section) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active')
+                if (link.getAttribute('href') === `#${section}`) {
+                    link.classList.add('active')
+                }
+            })
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' })
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu')
+            const icon = document.getElementById('menu-icon')
+            menu.classList.toggle('hidden')
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars')
+                icon.classList.add('fa-times')
+            } else {
+                icon.classList.add('fa-bars')
+                icon.classList.remove('fa-times')
+            }
+        }
+
+        let isDark = true
+        function toggleDarkMode() {
+            isDark = !isDark
+            if (isDark) {
+                document.documentElement.style.setProperty('color-scheme', 'dark')
+                document.getElementById('theme-toggle').innerHTML = `<i class="fas fa-moon text-yellow-400"></i>`
+            } else {
+                document.getElementById('theme-toggle').innerHTML = `<i class="fas fa-sun text-yellow-400"></i>`
+            }
+        }
+
+        // Projects data
+        const projects = [
+            {
+                title: "Restaurant Management Web Application",
+                period: "Oct 2025 - Nov 2025",
+                desc: "Full-stack web app with dynamic menu management, secure user authentication (JWT), real-time order processing, and admin dashboard.",
+                tech: ["Django", "MySQL", "Tailwind CSS", "JavaScript"],
+                github: "https://github.com/Kamran0018",
+                highlights: [
+                    "Built scalable backend with Django REST Framework",
+                    "Responsive UI with Tailwind CSS",
+                    "MySQL database with optimized queries"
+                ]
+            },
+            {
+                title: "Student Record Management System",
+                period: "May 2025 - Jun 2025",
+                desc: "Desktop application for managing student and library records with interactive Swing GUI and persistent file storage.",
+                tech: ["Java", "Swing", "OOP", "LinkedList", "File Handling"],
+                github: "https://github.com/Kamran0018",
+                highlights: [
+                    "CRUD operations with search &amp; filter",
+                    "Persistent data using file I/O",
+                    "Clean Object-Oriented design"
+                ]
+            },
+            {
+                title: "Laptop Price Predictor",
+                period: "Mar 2025 - Apr 2025",
+                desc: "Machine Learning web app deployed on Streamlit that predicts laptop prices based on specifications using regression models.",
+                tech: ["Python", "Pandas", "scikit-learn", "Streamlit", "NumPy"],
+                github: "https://github.com/Kamran0018",
+                highlights: [
+                    "Data preprocessing &amp; EDA",
+                    "Hyperparameter tuning for best accuracy",
+                    "Real-time prediction interface"
+                ]
+            }
+        ]
+
+        function showProjectModal(index) {
+            const proj = projects[index]
+            let html = `
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-yellow-400 text-sm">${proj.period}</div>
+                        <h3 class="text-3xl font-bold mt-2">${proj.title}</h3>
+                    </div>
+                    <button onclick="closeModal()" class="text-4xl text-zinc-600 hover:text-white">×</button>
+                </div>
+                <p class="text-zinc-300 mt-8 leading-relaxed">${proj.desc}</p>
+                
+                <div class="my-10">
+                    <div class="uppercase text-xs text-zinc-500 mb-4">Tech Stack</div>
+                    <div class="flex flex-wrap gap-3">
+                        ${proj.tech.map(t => `<span class="px-5 py-2 bg-zinc-800 rounded-2xl text-sm">${t}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="uppercase text-xs text-zinc-500 mb-4">Key Highlights</div>
+                    <ul class="space-y-4">
+                        ${proj.highlights.map(h => `
+                            <li class="flex gap-4">
+                                <span class="text-yellow-400 text-xl">→</span>
+                                <span>${h}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-zinc-700">
+                    <a href="${proj.github}" target="_blank" 
+                       class="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-3xl font-semibold hover:bg-yellow-300">
+                        <i class="fab fa-github text-xl"></i>
+                        VIEW ON GITHUB
+                    </a>
+                </div>
+            `
+            document.getElementById('modal-content').innerHTML = html
+            document.getElementById('project-modal').classList.remove('hidden')
+            document.getElementById('project-modal').classList.add('flex')
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal')
+            modal.classList.add('hidden')
+            modal.classList.remove('flex')
+        }
+
+        // Download CV (prints nicely formatted version)
+        function downloadCV() {
+            const printContent = `
+                <div style="font-family: system-ui; max-width: 800px; margin: 40px auto; padding: 40px; background: white; color: black; line-height: 1.6;">
+                    <h1 style="font-size: 42px; margin-bottom: 8px;">Md Kamran Ansari</h1>
+                    <p style="color: #666; margin-bottom: 30px;">+91-8709054237 | mdkamran7506@gmail.com | github.com/Kamran0018 | linkedin.com/in/kamran-ansari01</p>
+                    
+                    <h2 style="border-bottom: 3px solid #eab308; padding-bottom: 8px; font-size: 22px; margin-top: 40px;">SKILLS</h2>
+                    <p><strong>Languages:</strong> C++, Java, Python, JavaScript, C</p>
+                    <p><strong>Tech:</strong> HTML, Tailwind CSS, Pandas, Scikit-learn, Django, React, MySQL</p>
+                    
+                    <h2 style="border-bottom: 3px solid #eab308; padding-bottom: 8px; font-size: 22px; margin-top: 40px;">PROJECTS</h2>
+                    <div style="margin-bottom: 25px;">
+                        <strong>Restaurant Management Web Application</strong><br>
+                        Oct 2025 - Nov 2025 • Django • MySQL • Tailwind
+                    </div>
+                    <div style="margin-bottom: 25px;">
+                        <strong>Student Record Management System</strong><br>
+                        May 2025 - Jun 2025 • Java Swing
+                    </div>
+                    <div>
+                        <strong>Laptop Price Predictor</strong><br>
+                        Mar 2025 - Apr 2025 • Python • Streamlit • scikit-learn
+                    </div>
+                    
+                    <h2 style="border-bottom: 3px solid #eab308; padding-bottom: 8px; font-size: 22px; margin-top: 40px;">EDUCATION</h2>
+                    <p><strong>B.Tech Computer Science &amp; Engineering</strong> — Lovely Professional University (CGPA 7.06)</p>
+                    <p><strong>Intermediate (78%)</strong> — DAV PG College, Siwan</p>
+                    <p><strong>Matriculation (84%)</strong> — Don Bosco High School, Siwan</p>
+                </div>
+            `
+            const original = document.body.innerHTML
+            document.body.innerHTML = printContent
+            window.print()
+            document.body.innerHTML = original
+            location.reload() // restore scripts
+        }
+
+        // Typing effect
+        function typeEffect() {
+            const texts = ["Full-Stack Developer", "ML Engineer", "Problem Solver"]
+            let count = 0
+            let index = 0
+            let currentText = ''
+            let direction = 1
+
+            const typingElement = document.getElementById('typing')
+
+            setInterval(() => {
+                if (direction === 1) {
+                    currentText = texts[count].substring(0, index + 1)
+                    index++
+                    if (index > texts[count].length) {
+                        direction = -1
+                        setTimeout(() => { }, 1500)
+                    }
+                } else {
+                    currentText = texts[count].substring(0, index - 1)
+                    index--
+                    if (index === 0) {
+                        direction = 1
+                        count = (count + 1) % texts.length
+                    }
+                }
+                typingElement.textContent = currentText + '|'
+            }, 80)
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+                e.preventDefault()
+                document.getElementById('mobile-menu').classList.toggle('hidden')
+            }
+        })
+
+        // Initialize everything
+        window.onload = function () {
+            // Active nav on scroll
+            window.addEventListener('scroll', () => {
+                let current = ''
+                const sections = ['home', 'about', 'skills', 'projects', 'certificates', 'education']
+
+                sections.forEach(sectionId => {
+                    const section = document.getElementById(sectionId)
+                    const sectionTop = section.offsetTop
+
+                    if (scrollY >= sectionTop - 200) {
+                        current = sectionId
+                    }
+                })
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active')
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active')
+                    }
+                })
+            })
+
+            // Start typing
+            typeEffect()
+
+            // Profile image hover effect
+            const profile = document.getElementById('profile-img')
+            profile.addEventListener('mouseenter', () => {
+                profile.style.transform = 'scale(1.05) rotate(2deg)'
+            })
+            profile.addEventListener('mouseleave', () => {
+                profile.style.transform = 'scale(1) rotate(0deg)'
+            })
+
+            // Close modal on escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") {
+                    const modal = document.getElementById('project-modal')
+                    if (!modal.classList.contains('hidden')) closeModal()
+                }
+            })
+
+            console.log('%c✅ Portfolio loaded successfully! Built for Md Kamran Ansari', 'color:#eab308; font-family:monospace')
+        }
+    </script>
+</body>
+
+</html>
