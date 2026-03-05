@@ -137,4 +137,46 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1500);
         });
     }
+
+    // 8. Certificate Modal Logic
+    const certModal = document.getElementById('certModal');
+    const modalImg = document.getElementById('certModalImg');
+    const closeModal = document.querySelector('.close-modal');
+    const viewCertBtns = document.querySelectorAll('.view-cert-btn');
+
+    if (certModal && modalImg && closeModal) {
+        // Open modal
+        viewCertBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const certSrc = btn.getAttribute('data-cert');
+                if (certSrc) {
+                    modalImg.src = certSrc;
+                    certModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                }
+            });
+        });
+
+        // Close modal
+        const closeCertModal = () => {
+            certModal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+            modalImg.src = '';
+        };
+
+        closeModal.addEventListener('click', closeCertModal);
+
+        certModal.addEventListener('click', (e) => {
+            if (e.target === certModal) {
+                closeCertModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && certModal.style.display === 'block') {
+                closeCertModal();
+            }
+        });
+    }
 });

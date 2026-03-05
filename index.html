@@ -206,43 +206,68 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="journey-section section-padding">
+    <section id="certifications" class="certifications-section section-padding">
         <h2 class="section-title reveal">My <span>Certifications</span></h2>
 
-        <div class="journey-container wrapper">
-            <!-- Timeline Column -->
-            <div class="timeline-column reveal">
-                <div class="timeline">
-                    <!-- Item -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">Jun '25 - Jul '25</div>
-                        <h4>Fundamentals of Data Structures</h4>
-                        <h5>Lovely Professional University</h5>
-                        <p>Completed intensive training strengthening core concepts including arrays, linked lists,
-                            stacks, queues, and trees.</p>
-                    </div>
-                    <!-- Item -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">Nov '25</div>
-                        <h4>Cloud Computing</h4>
-                        <h5>NPTEL</h5>
-                    </div>
-                    <!-- Item -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">Aug '25</div>
-                        <h4>Master Generative AI & Tools</h4>
-                        <h5>Infosys</h5>
-                    </div>
-                    <!-- Item -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">Sep '24</div>
-                        <h4>Bits & Bytes / Networking</h4>
-                        <h5>Google & Coursera</h5>
-                    </div>
+        <div class="certifications-grid wrapper">
+            <!-- Cert 1 -->
+            <div class="cert-card glass-card reveal">
+                <div class="cert-img-wrapper">
+                    <img src="assets/NPTEL Cloud Computing_page-0001.jpg" alt="Cloud Computing" class="cert-img">
+                </div>
+                <div class="cert-info">
+                    <div class="cert-date">Nov '25</div>
+                    <h3>Cloud Computing</h3>
+                    <h5 class="cert-issuer">NPTEL</h5>
+                    <a href="javascript:void(0)" data-cert="assets/NPTEL Cloud Computing_page-0001.jpg"
+                        class="cert-action-link view-cert-btn"><i class="fas fa-eye"></i> View Certificate</a>
+                </div>
+            </div>
+
+            <!-- Cert 2 -->
+            <div class="cert-card glass-card reveal">
+                <div class="cert-img-wrapper">
+                    <img src="assets/Master Generative AI & Generative AI Tools_page-0001.jpg"
+                        alt="Master Generative AI & Tools" class="cert-img">
+                </div>
+                <div class="cert-info">
+                    <div class="cert-date">Aug '25</div>
+                    <h3>Master Generative AI & Tools</h3>
+                    <h5 class="cert-issuer">Infosys</h5>
+                    <a href="javascript:void(0)"
+                        data-cert="assets/Master Generative AI & Generative AI Tools_page-0001.jpg"
+                        class="cert-action-link view-cert-btn"><i class="fas fa-eye"></i> View Certificate</a>
+                </div>
+            </div>
+
+            <!-- Cert 3 -->
+            <div class="cert-card glass-card reveal">
+                <div class="cert-img-wrapper">
+                    <img src="assets/Bits & Bytes by Google_page-0001.jpg" alt="Bits & Bytes / Networking"
+                        class="cert-img">
+                </div>
+                <div class="cert-info">
+                    <div class="cert-date">Sep '24</div>
+                    <h3>Bits & Bytes / Networking</h3>
+                    <h5 class="cert-issuer">Google & Coursera</h5>
+                    <a href="javascript:void(0)" data-cert="assets/Bits & Bytes by Google_page-0001.jpg"
+                        class="cert-action-link view-cert-btn"><i class="fas fa-eye"></i> View Certificate</a>
+                </div>
+            </div>
+
+            <!-- Cert 4 -->
+            <div class="cert-card glass-card reveal">
+                <div class="cert-img-wrapper">
+                    <img src="assets/Build Generative AI Apps and Solutions with No-Code Tools_page-0001.jpg"
+                        alt="Build Generative AI Apps and Solutions" class="cert-img">
+                </div>
+                <div class="cert-info">
+                    <div class="cert-date">Recent</div>
+                    <h3>Build Generative AI Apps</h3>
+                    <h5 class="cert-issuer">Certification</h5>
+                    <a href="javascript:void(0)"
+                        data-cert="assets/Build Generative AI Apps and Solutions with No-Code Tools_page-0001.jpg"
+                        class="cert-action-link view-cert-btn"><i class="fas fa-eye"></i> View Certificate</a>
                 </div>
             </div>
         </div>
@@ -369,6 +394,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Certificate Modal -->
+    <div id="certModal" class="cert-modal">
+        <span class="close-modal">&times;</span>
+        <img class="cert-modal-content" id="certModalImg">
+    </div>
 
     <script src="script.js"></script>
 </body>
