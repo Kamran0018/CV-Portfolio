@@ -1,1 +1,1 @@
-kamrancv.vercel.app
+https://kamrancv.vercel.app/
