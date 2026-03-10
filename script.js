@@ -121,9 +121,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // FormSubmit currently handles the Contact Form Submit natively via HTML POST.
-    // (JavaScript interception removed to allow first-time email activation) 
+    // 7. Handle Contact Form Submit via FormSubmit AJAX (Now that email is activated)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerHTML;
 
+            btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
+
+            const formData = new FormData(contactForm);
+            const object = {};
+            formData.forEach((value, key) => {
+                if (key !== '_captcha') {
+                    object[key] = value;
+                }
+            });
+            const json = JSON.stringify(object);
+
+            // Send data using Fetch API to FormSubmit AJAX endpoint
+            fetch('https://formsubmit.co/ajax/mdkamran7506@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success === "true" || data.success === true) {
+                        btn.innerHTML = 'Sent Successfully! <i class="fas fa-check"></i>';
+                        btn.style.background = '#10b981'; // Success green
+                        btn.style.opacity = '1';
+                        contactForm.reset();
+                    } else {
+                        btn.innerHTML = 'Error! Try Again <i class="fas fa-times"></i>';
+                        btn.style.background = '#ef4444'; // Error red
+                        btn.style.opacity = '1';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting form:', error);
+                    btn.innerHTML = 'Error! Try Again <i class="fas fa-times"></i>';
+                    btn.style.background = '#ef4444';
+                    btn.style.opacity = '1';
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 3000);
+                });
+        });
+    }
     // 8. Certificate Modal Logic
     const certModal = document.getElementById('certModal');
     const modalImg = document.getElementById('certModalImg');
