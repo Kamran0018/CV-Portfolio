@@ -58,7 +58,7 @@
             <div class="action-buttons reveal">
                 <a href="#contact" class="btn btn-primary">Hire Me</a>
                 <!-- Optional: Add path to actual resume PDF -->
-                <a href="#" class="btn btn-secondary">Download CV</a>
+                <a href="assets/KamranFinalCV(New).pdf" target="_blank" class="btn btn-secondary">Download CV</a>
             </div>
         </div>
 
@@ -71,17 +71,15 @@
             </div>
         </div>
 
-        <a href="#skills" class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <span>Scroll Down</span>
-        </a>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills-section section-padding">
-        <h2 class="section-title reveal">My <span>Skills</span></h2>
+        <div class="wrapper">
+            <div class="section-heading-left reveal">
+                <h2 class="section-title-left">Skills</h2>
+            </div>
+        </div>
 
         <div class="skills-wrapper wrapper reveal">
             <!-- Languages -->
@@ -279,10 +277,38 @@
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section section-padding">
-        <h2 class="section-title reveal">Featured <span>Projects</span></h2>
+        <div class="wrapper">
+            <div class="section-heading-left reveal">
+                <h2 class="section-title-left">Projects</h2>
+            </div>
+        </div>
 
         <div class="projects-grid wrapper">
-            <!-- Project 1 -->
+            <!-- Project: 1 -->
+            <div class="project-card glass-card reveal">
+                <div class="project-img">
+                    <div class="placeholder-img"><i class="fas fa-shield-alt"></i></div>
+                </div>
+                <div class="project-info">
+                    <div class="project-date">Mar 2026 - Present</div>
+                    <h3>ExamGuard AI</h3>
+                    <p>AI-powered online exam &amp; proctoring system with real-time face detection, noise monitoring,
+                        and an integrity scoring engine. Features role-based dashboards for Admins and Students with
+                        secure JWT authentication.</p>
+                    <div class="tech-stack">
+                        <span>Next.js</span>
+                        <span>FastAPI</span>
+                        <span>Python</span>
+                        <span>JWT</span>
+                        <span>AI Proctoring</span>
+                        <span>WebSockets</span>
+                    </div>
+                    <a href="https://github.com/Kamran0018" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                </div>
+            </div>
+            <!-- Project 2 -->
             <div class="project-card glass-card reveal">
                 <div class="project-img">
                     <div class="placeholder-img"><i class="fas fa-utensils"></i></div>
@@ -297,27 +323,6 @@
                         <span>MySQL</span>
                         <span>Tailwind</span>
                         <span>JS</span>
-                    </div>
-                    <a href="https://github.com/Kamran0018" target="_blank" class="project-link"><i
-                            class="fab fa-github"></i> View Repository</a>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card glass-card reveal">
-                <div class="project-img">
-                    <div class="placeholder-img"><i class="fas fa-graduation-cap"></i></div>
-                </div>
-                <div class="project-info">
-                    <div class="project-date">May 2025 - Jun 2025</div>
-                    <h3>Student Record System</h3>
-                    <p>Java-based Library Management System featuring an interactive Swing interface for streamlined
-                        record operations and secure file handling.</p>
-                    <div class="tech-stack">
-                        <span>Java</span>
-                        <span>Swing</span>
-                        <span>OOP</span>
-                        <span>File Handling</span>
                     </div>
                     <a href="https://github.com/Kamran0018" target="_blank" class="project-link"><i
                             class="fab fa-github"></i> View Repository</a>
@@ -344,12 +349,37 @@
                             class="fab fa-github"></i> View Repository</a>
                 </div>
             </div>
+
+            <!-- Project 4: Student Record System -->
+            <div class="project-card glass-card reveal">
+                <div class="project-img">
+                    <div class="placeholder-img"><i class="fas fa-graduation-cap"></i></div>
+                </div>
+                <div class="project-info">
+                    <div class="project-date">May 2025 - Jun 2025</div>
+                    <h3>Student Record System</h3>
+                    <p>Java-based Library Management System featuring an interactive Swing interface for streamlined
+                        record operations and secure file handling.</p>
+                    <div class="tech-stack">
+                        <span>Java</span>
+                        <span>Swing</span>
+                        <span>OOP</span>
+                        <span>File Handling</span>
+                    </div>
+                    <a href="https://github.com/Kamran0018" target="_blank" class="project-link"><i
+                            class="fab fa-github"></i> View Repository</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
     <section id="certifications" class="certifications-section section-padding">
-        <h2 class="section-title reveal">My <span>Certifications</span></h2>
+        <div class="wrapper">
+            <div class="section-heading-left reveal">
+                <h2 class="section-title-left">Certifications</h2>
+            </div>
+        </div>
 
         <div class="certifications-grid wrapper">
             <!-- Cert 1 -->
@@ -417,7 +447,11 @@
 
     <!-- Achievements Section -->
     <section id="achievements" class="achievements-section section-padding">
-        <h2 class="section-title reveal">My <span>Achievements</span></h2>
+        <div class="wrapper">
+            <div class="section-heading-left reveal">
+                <h2 class="section-title-left">Achievements</h2>
+            </div>
+        </div>
 
         <div class="achievements-container wrapper">
             <div class="achievements-grid reveal">
@@ -444,38 +478,67 @@
 
     <!-- Education Section -->
     <section id="education" class="education-section section-padding">
-        <h2 class="section-title reveal">My <span>Education</span></h2>
-
-        <div class="education-grid wrapper">
-            <div class="education-card glass-card reveal">
-                <div class="edu-date">Aug 2023 - Present</div>
-                <h3>B.Tech - Computer Science and Engineering</h3>
-                <h4>Lovely Professional University</h4>
-                <div class="edu-location"><i class="fas fa-map-marker-alt"></i> Phagwara, Punjab</div>
-                <div class="edu-score">CGPA: 7.06</div>
+        <div class="wrapper">
+            <div class="section-heading-left reveal">
+                <h2 class="section-title-left">Education</h2>
             </div>
 
-            <div class="education-card glass-card reveal">
-                <div class="edu-date">Jun 2022 - Mar 2023</div>
-                <h3>Intermediate (12th)</h3>
-                <h4>DAV PG College</h4>
-                <div class="edu-location"><i class="fas fa-map-marker-alt"></i> Siwan, Bihar</div>
-                <div class="edu-score">Percentage: 78%</div>
-            </div>
+            <div class="education-timeline">
+                <!-- Item 1 -->
+                <div class="edu-timeline-item reveal">
+                    <div class="edu-timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="edu-timeline-content glass-card">
+                        <div class="edu-header">
+                            <h3>B.Tech — Computer Science & Engineering</h3>
+                            <span class="edu-date-pill">2023 – Present</span>
+                        </div>
+                        <p class="edu-institute">Lovely Professional University, Phagwara</p>
+                        <p class="edu-score">CGPA: 7.32</p>
+                    </div>
+                </div>
 
-            <div class="education-card glass-card reveal">
-                <div class="edu-date">Apr 2020 - Mar 2021</div>
-                <h3>Matriculation (10th)</h3>
-                <h4>Don Bosco High School</h4>
-                <div class="edu-location"><i class="fas fa-map-marker-alt"></i> Siwan, Bihar</div>
-                <div class="edu-score">Percentage: 84%</div>
+                <!-- Item 2 -->
+                <div class="edu-timeline-item reveal">
+                    <div class="edu-timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="edu-timeline-content glass-card">
+                        <div class="edu-header">
+                            <h3>Intermediate (12th)</h3>
+                            <span class="edu-date-pill">2022 – 2023</span>
+                        </div>
+                        <p class="edu-institute">DAV PG College, Siwan</p>
+                        <p class="edu-score">Percentage: 78%</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="edu-timeline-item reveal">
+                    <div class="edu-timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="edu-timeline-content glass-card">
+                        <div class="edu-header">
+                            <h3>Matriculation (10th)</h3>
+                            <span class="edu-date-pill">2020 – 2021`</span>
+                        </div>
+                        <p class="edu-institute">Don Bosco High School, Siwan</p>
+                        <p class="edu-score">Percentage: 84.6%</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section section-padding">
-        <h2 class="section-title reveal">Get In <span>Touch</span></h2>
+        <div class="wrapper">
+            <div class="section-heading-left reveal">
+                <h2 class="section-title-left">Contact</h2>
+            </div>
+        </div>
 
         <div class="contact-container wrapper reveal">
             <div class="contact-info glass-card">
@@ -507,18 +570,22 @@
                 </div>
             </div>
 
-            <form class="contact-form glass-card" id="contactForm">
+            <form action="https://formsubmit.co/mdkamran7506@gmail.com" method="POST" class="contact-form glass-card"
+                id="contactForm">
+                <!-- Disable Captcha for seamless AJAX integration -->
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="input-group">
-                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="input-group">
-                    <input type="email" placeholder="Your Email" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="input-group">
-                    <input type="text" placeholder="Subject" required>
+                    <input type="text" name="_subject" placeholder="Subject" required>
                 </div>
                 <div class="input-group">
-                    <textarea cols="30" rows="5" placeholder="Your Message" required></textarea>
+                    <textarea name="message" cols="30" rows="5" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
             </form>

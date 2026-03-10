@@ -6,10 +6,10 @@
     /* Deep professional navy background */
     --surface-color: rgba(30, 41, 59, 0.7);
     /* Sleek slate surface */
-    --primary-color: #2563eb;
+    --primary-color: #6366f1;
     /* Professional sapphire blue */
-    --primary-glow: rgba(37, 99, 235, 0.4);
-    --secondary-color: #3b82f6;
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --secondary-color: #06b6d4;
     /* Lighter blue accent */
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
@@ -146,12 +146,12 @@ ul {
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
     /* Updated to Professional Blue */
 }
 
 .btn-primary:hover {
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
     /* Updated to Professional Blue */
     transform: translateY(-3px) scale(1.05);
     /* Added interactivity */
@@ -642,7 +642,7 @@ ul {
 .project-img {
     height: 200px;
     width: 100%;
-    background: rgba(37, 99, 235, 0.1);
+    background: rgba(99, 102, 241, 0.1);
     /* Updated to Professional Blue */
     display: flex;
     justify-content: center;
@@ -653,7 +653,7 @@ ul {
 }
 
 .project-card:hover .project-img {
-    background: rgba(37, 99, 235, 0.2);
+    background: rgba(99, 102, 241, 0.2);
     /* Updated to Professional Blue */
 }
 
@@ -802,7 +802,7 @@ ul {
 .cert-date {
     display: inline-block;
     padding: 3px 12px;
-    background: rgba(37, 99, 235, 0.1);
+    background: rgba(99, 102, 241, 0.1);
     color: var(--primary-color);
     border-radius: 20px;
     font-size: 0.85rem;
@@ -901,7 +901,7 @@ ul {
 .timeline-date {
     display: inline-block;
     padding: 3px 12px;
-    background: rgba(37, 99, 235, 0.1);
+    background: rgba(99, 102, 241, 0.1);
     /* Updated to Professional Blue */
     color: var(--primary-color);
     border-radius: 20px;
@@ -952,9 +952,9 @@ ul {
 .icon-box {
     min-width: 60px;
     height: 60px;
-    background: rgba(37, 99, 235, 0.1);
+    background: rgba(99, 102, 241, 0.1);
     /* Updated to Professional Blue */
-    border: 1px solid rgba(37, 99, 235, 0.3);
+    border: 1px solid rgba(99, 102, 241, 0.3);
     /* Updated to Professional Blue */
     border-radius: 12px;
     display: flex;
@@ -983,60 +983,161 @@ ul {
 }
 
 /* =========================================
-   Education Section
+   Education Section Redesign
    ========================================= */
-.education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.section-heading-left {
+    margin-bottom: 3rem;
+    text-align: left;
 }
 
-.education-card {
+.section-title-left {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #6366f1;
     position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-.edu-date {
+.section-title-left::after {
+    content: '';
     position: absolute;
-    top: -15px;
-    right: 20px;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: #06b6d4;
+    border-radius: 2px;
+}
+
+.education-timeline {
+    position: relative;
+    max-width: 900px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 17px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.edu-timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 60px;
+}
+
+.edu-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.edu-timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 35px;
+    height: 35px;
     background: var(--bg-color);
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 5px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.edu-timeline-icon i {
+    color: #06b6d4;
+    font-size: 0.9rem;
+}
+
+.edu-timeline-content {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.edu-timeline-content:hover {
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.edu-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.edu-date-pill {
+    background: rgba(6, 182, 212, 0.1);
+    color: #06b6d4;
+    padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
 }
 
-.education-card h3 {
-    font-size: 1.3rem;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-
-.education-card h4 {
+.edu-institute {
     color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.edu-score {
+    color: #06b6d4;
+    font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin: 0;
 }
 
-.edu-location,
-.edu-score {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-    color: var(--text-main);
-}
+@media (max-width: 768px) {
+    .edu-timeline-item {
+        padding-left: 45px;
+    }
 
-.edu-location i {
-    color: var(--primary-color);
-}
+    .edu-timeline-icon {
+        width: 30px;
+        height: 30px;
+        left: 2px;
+    }
 
-.edu-score {
-    font-weight: 600;
-    color: var(--secondary-color);
+    .education-timeline::before {
+        left: 16px;
+    }
+
+    .edu-timeline-content {
+        padding: 1.2rem;
+    }
+
+    .edu-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .section-title-left {
+        font-size: 2.2rem;
+    }
 }
 
 /* =========================================
@@ -1068,7 +1169,7 @@ ul {
 .info-item .icon {
     width: 50px;
     height: 50px;
-    background: rgba(37, 99, 235, 0.1);
+    background: rgba(99, 102, 241, 0.1);
     /* Updated to Professional Blue */
     border-radius: 50%;
     display: flex;
@@ -1123,9 +1224,9 @@ ul {
 .input-group input:focus,
 .input-group textarea:focus {
     border-color: var(--primary-color);
-    background: rgba(37, 99, 235, 0.05);
+    background: rgba(99, 102, 241, 0.05);
     /* Updated to Professional Blue */
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.1);
     /* Updated to Professional Blue */
     transform: translateY(-2px);
     /* Added interactivity */
@@ -1300,8 +1401,7 @@ footer {
 
     .skills-grid,
     .projects-grid,
-    .achievements-grid,
-    .education-grid {
+    .achievements-grid {
         grid-template-columns: 1fr;
     }
 

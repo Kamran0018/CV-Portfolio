@@ -121,31 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. Prevent Default Contact Form Submit (Demo purposes)
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerHTML;
-
-            btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
-            btn.style.opacity = '0.7';
-
-            // Simulate network request
-            setTimeout(() => {
-                btn.innerHTML = 'Sent Successfully! <i class="fas fa-check"></i>';
-                btn.style.background = '#10b981'; // Success green
-                btn.style.opacity = '1';
-                contactForm.reset();
-
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                }, 3000);
-            }, 1500);
-        });
-    }
+    // FormSubmit currently handles the Contact Form Submit natively via HTML POST.
+    // (JavaScript interception removed to allow first-time email activation) 
 
     // 8. Certificate Modal Logic
     const certModal = document.getElementById('certModal');
