@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Typing Effect
     const typingSpan = document.querySelector('.typing-text');
     const textArray = [
-        'Data Analyst',
-        'Machine Learning Enthusiast',
         'Full-Stack Developer',
-        'Problem Solver',
-        'Tech Explorer'
+        'Python & Django Developer',
+        'Machine Learning Enthusiast',
+        'Data Analytics Explorer',
+        'Open Source Learner'
     ];
     const typingDelay = 100;
     const erasingDelay = 50;
@@ -213,4 +213,105 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+});
+
+// --- Background Animation (Particle System) ---
+class Particle {
+    constructor(canvas, ctx) {
+        this.canvas = canvas;
+        this.ctx = ctx;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 1.5 + 0.5;
+        this.opacity = Math.random() * 0.5 + 0.2;
+    }
+
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > this.canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > this.canvas.height) this.vy *= -1;
+    }
+
+    draw() {
+        this.ctx.beginPath();
+        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        // Alternate between Gold and Red tones
+        const color = Math.random() > 0.5 ? '212, 175, 55' : '220, 38, 38';
+        this.ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
+        this.ctx.fill();
+    }
+}
+
+class ParticleSystem {
+    constructor() {
+        this.canvas = document.getElementById('bg-canvas');
+        if (!this.canvas) return;
+
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.numParticles = Math.min(Math.floor(window.innerWidth / 12), 80);
+        this.connectionDistance = 150;
+
+        this.init();
+        this.animate();
+
+        window.addEventListener('resize', () => this.resize());
+    }
+
+    init() {
+        this.resize();
+        this.particles = [];
+        for (let i = 0; i < this.numParticles; i++) {
+            this.particles.push(new Particle(this.canvas, this.ctx));
+        }
+    }
+
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    }
+
+    drawConnections() {
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const p1 = this.particles[i];
+                const p2 = this.particles[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.connectionDistance) {
+                    const opacity = (1 - distance / this.connectionDistance) * 0.15;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(p1.x, p1.y);
+                    this.ctx.lineTo(p2.x, p2.y);
+                    this.ctx.strokeStyle = `rgba(212, 175, 55, ${opacity})`;
+                    this.ctx.lineWidth = 0.5;
+                    this.ctx.stroke();
+                }
+            }
+        }
+    }
+
+    animate() {
+        if (!this.canvas) return;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        this.particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        this.drawConnections();
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    new ParticleSystem();
 });

@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body>
+<body id="top">
+    <!-- Live Background Animation -->
+    <canvas id="bg-canvas"></canvas>
     <!-- Navigation -->
     <nav class="navbar">
         <a href="#home" class="logo">Kamran<span>.</span></a>
@@ -87,37 +89,43 @@
             <div class="skill-group reveal">
                 <h3 class="skill-group-title"><i class="fas fa-terminal"></i> Languages</h3>
                 <div class="skills-grid">
-                    <div class="skill-card glass-card" style="--skill-color: #3178c6; --skill-bg: rgba(49, 120, 198, 0.1); --skill-glow: #3178c6; --skill-border: rgba(49, 120, 198, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #3178c6; --skill-bg: rgba(49, 120, 198, 0.1); --skill-glow: #3178c6; --skill-border: rgba(49, 120, 198, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-code"></i>
                             <span>C++</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #ed8b00; --skill-bg: rgba(237, 139, 0, 0.1); --skill-glow: #ed8b00; --skill-border: rgba(237, 139, 0, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #ed8b00; --skill-bg: rgba(237, 139, 0, 0.1); --skill-glow: #ed8b00; --skill-border: rgba(237, 139, 0, 0.3);">
                         <div class="skill-info">
                             <i class="fab fa-java"></i>
                             <span>Java</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #6366f1; --skill-bg: rgba(99, 102, 241, 0.1); --skill-glow: #6366f1; --skill-border: rgba(99, 102, 241, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #6366f1; --skill-bg: rgba(99, 102, 241, 0.1); --skill-glow: #6366f1; --skill-border: rgba(99, 102, 241, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-c"></i>
                             <span>C</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #3776ab; --skill-bg: rgba(55, 118, 171, 0.1); --skill-glow: #3776ab; --skill-border: rgba(55, 118, 171, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #3776ab; --skill-bg: rgba(55, 118, 171, 0.1); --skill-glow: #3776ab; --skill-border: rgba(55, 118, 171, 0.3);">
                         <div class="skill-info">
                             <i class="fab fa-python"></i>
                             <span>Python</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #f7df1e; --skill-bg: rgba(247, 223, 30, 0.1); --skill-glow: #f7df1e; --skill-border: rgba(247, 223, 30, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #f7df1e; --skill-bg: rgba(247, 223, 30, 0.1); --skill-glow: #f7df1e; --skill-border: rgba(247, 223, 30, 0.3);">
                         <div class="skill-info">
                             <i class="fab fa-js"></i>
                             <span>JavaScript</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #e34f26; --skill-bg: rgba(227, 79, 38, 0.1); --skill-glow: #e34f26; --skill-border: rgba(227, 79, 38, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #e34f26; --skill-bg: rgba(227, 79, 38, 0.1); --skill-glow: #e34f26; --skill-border: rgba(227, 79, 38, 0.3);">
                         <div class="skill-info">
                             <i class="fab fa-html5"></i>
                             <span>HTML/CSS</span>
@@ -130,43 +138,50 @@
             <div class="skill-group reveal">
                 <h3 class="skill-group-title"><i class="fas fa-cubes"></i> Frameworks & Libraries</h3>
                 <div class="skills-grid">
-                    <div class="skill-card glass-card" style="--skill-color: #38bdf8; --skill-bg: rgba(56, 189, 248, 0.1); --skill-glow: #38bdf8; --skill-border: rgba(56, 189, 248, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #38bdf8; --skill-bg: rgba(56, 189, 248, 0.1); --skill-glow: #38bdf8; --skill-border: rgba(56, 189, 248, 0.3);">
                         <div class="skill-info">
                             <i class="fab fa-css3-alt"></i>
                             <span>Tailwind CSS</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #61dffb; --skill-bg: rgba(97, 219, 251, 0.1); --skill-glow: #61dffb; --skill-border: rgba(97, 219, 251, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #61dffb; --skill-bg: rgba(97, 219, 251, 0.1); --skill-glow: #61dffb; --skill-border: rgba(97, 219, 251, 0.3);">
                         <div class="skill-info">
                             <i class="fab fa-react"></i>
                             <span>React</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #092e20; --skill-bg: rgba(9, 46, 32, 0.1); --skill-glow: #092e20; --skill-border: rgba(9, 46, 32, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #092e20; --skill-bg: rgba(9, 46, 32, 0.1); --skill-glow: #092e20; --skill-border: rgba(9, 46, 32, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-cube"></i>
                             <span>Django</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #150458; --skill-bg: rgba(21, 4, 88, 0.1); --skill-glow: #150458; --skill-border: rgba(21, 4, 88, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #150458; --skill-bg: rgba(21, 4, 88, 0.1); --skill-glow: #150458; --skill-border: rgba(21, 4, 88, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-table"></i>
                             <span>Pandas</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #4dabcf; --skill-bg: rgba(77, 171, 207, 0.1); --skill-glow: #4dabcf; --skill-border: rgba(77, 171, 207, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #4dabcf; --skill-bg: rgba(77, 171, 207, 0.1); --skill-glow: #4dabcf; --skill-border: rgba(77, 171, 207, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-calculator"></i>
                             <span>NumPy</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #f7931e; --skill-bg: rgba(247, 147, 30, 0.1); --skill-glow: #f7931e; --skill-border: rgba(247, 147, 30, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #f7931e; --skill-bg: rgba(247, 147, 30, 0.1); --skill-glow: #f7931e; --skill-border: rgba(247, 147, 30, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-brain"></i>
                             <span>Scikit-learn</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #11557c; --skill-bg: rgba(17, 85, 124, 0.1); --skill-glow: #11557c; --skill-border: rgba(17, 85, 124, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #11557c; --skill-bg: rgba(17, 85, 124, 0.1); --skill-glow: #11557c; --skill-border: rgba(17, 85, 124, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-chart-line"></i>
                             <span>Matplotlib</span>
@@ -179,25 +194,29 @@
             <div class="skill-group reveal">
                 <h3 class="skill-group-title"><i class="fas fa-tools"></i> Tools & Database</h3>
                 <div class="skills-grid">
-                    <div class="skill-card glass-card" style="--skill-color: #4479a1; --skill-bg: rgba(68, 121, 161, 0.1); --skill-glow: #4479a1; --skill-border: rgba(68, 121, 161, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #4479a1; --skill-bg: rgba(68, 121, 161, 0.1); --skill-glow: #4479a1; --skill-border: rgba(68, 121, 161, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-database"></i>
                             <span>MySQL</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #217346; --skill-bg: rgba(33, 115, 70, 0.1); --skill-glow: #217346; --skill-border: rgba(33, 115, 70, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #217346; --skill-bg: rgba(33, 115, 70, 0.1); --skill-glow: #217346; --skill-border: rgba(33, 115, 70, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-file-excel"></i>
                             <span>Excel</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #f2c811; --skill-bg: rgba(242, 200, 17, 0.1); --skill-glow: #f2c811; --skill-border: rgba(242, 200, 17, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #f2c811; --skill-bg: rgba(242, 200, 17, 0.1); --skill-glow: #f2c811; --skill-border: rgba(242, 200, 17, 0.3);">
                         <div class="skill-info">
                             <i class="fas fa-chart-bar"></i>
                             <span>Power BI</span>
                         </div>
                     </div>
-                    <div class="skill-card glass-card" style="--skill-color: #f05032; --skill-bg: rgba(240, 80, 50, 0.1); --skill-glow: #f05032; --skill-border: rgba(240, 80, 50, 0.3);">
+                    <div class="skill-card glass-card"
+                        style="--skill-color: #f05032; --skill-bg: rgba(240, 80, 50, 0.1); --skill-glow: #f05032; --skill-border: rgba(240, 80, 50, 0.3);">
                         <div class="skill-info">
                             <i class="fab fa-github"></i>
                             <span>Git/GitHub</span>
@@ -220,7 +239,8 @@
             <!-- Project: 1 -->
             <div class="project-card glass-card reveal">
                 <div class="project-img">
-                    <img src="assets/examguard.png" alt="ExamGuard AI" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/examguard.png" alt="ExamGuard AI"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="project-info">
                     <div class="project-date">Mar 2026 - Present</div>
@@ -244,7 +264,8 @@
             <!-- Project 2 -->
             <div class="project-card glass-card reveal">
                 <div class="project-img">
-                    <img src="assets/restaurant.png" alt="Restaurant Management App" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/restaurant.png" alt="Restaurant Management App"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="project-info">
                     <div class="project-date">Oct 2024 - Nov 2024</div>
@@ -265,7 +286,8 @@
             <!-- Project 3 -->
             <div class="project-card glass-card reveal">
                 <div class="project-img">
-                    <img src="assets/laptop.png" alt="Laptop Price Predictor" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/laptop.png" alt="Laptop Price Predictor"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="project-info">
                     <div class="project-date">Mar 2025 - Apr 2025</div>
@@ -286,7 +308,8 @@
             <!-- Project 4: Student Record System -->
             <div class="project-card glass-card reveal">
                 <div class="project-img">
-                    <img src="assets/student_record.png" alt="Student Record System" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/student_record.png" alt="Student Record System"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="project-info">
                     <div class="project-date">May 2025 - Jun 2025</div>
@@ -307,12 +330,15 @@
             <!-- Project 5: HR Analytics Dashboard -->
             <div class="project-card glass-card reveal">
                 <div class="project-img">
-                    <img src="assets/hr_dashboard.png" alt="HR Analytics Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/hr_dashboard.png" alt="HR Analytics Dashboard"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="project-info">
                     <div class="project-date">Jul 2025 - Aug 2025</div>
                     <h3>HR Performance & Retention Analytics Dashboard</h3>
-                    <p>Developed an interactive HR Analytics Dashboard using Power BI to analyze employee performance, workforce distribution, job satisfaction, and attrition trends. The dashboard helps HR teams make data-driven decisions for employee retention and workforce planning.</p>
+                    <p>Developed an interactive HR Analytics Dashboard using Power BI to analyze employee performance,
+                        workforce distribution, job satisfaction, and attrition trends. The dashboard helps HR teams
+                        make data-driven decisions for employee retention and workforce planning.</p>
                     <div class="tech-stack">
                         <span>Power BI</span>
                         <span>Data Visualization</span>
@@ -327,12 +353,15 @@
             <!-- Project 6: CPU Scheduling Algorithms Simulator -->
             <div class="project-card glass-card reveal">
                 <div class="project-img">
-                    <img src="assets/cpu_scheduling.png" alt="CPU Scheduling Simulator" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/cpu_scheduling.png" alt="CPU Scheduling Simulator"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="project-info">
                     <div class="project-date">Oct 2024 - Nov 2024</div>
                     <h3>CPU Scheduling Algorithms Simulator</h3>
-                    <p>Developed an interactive web-based simulator to visualize different CPU Scheduling Algorithms (FCFS, SJF, SRTF, RR, Priority) with dynamic Gantt charts and performance metrics. Features interactive user inputs and graphical data representation using Chart.js.</p>
+                    <p>Developed an interactive web-based simulator to visualize different CPU Scheduling Algorithms
+                        (FCFS, SJF, SRTF, RR, Priority) with dynamic Gantt charts and performance metrics. Features
+                        interactive user inputs and graphical data representation using Chart.js.</p>
                     <div class="tech-stack">
                         <span>HTML</span>
                         <span>CSS</span>
@@ -526,7 +555,7 @@
                     <div class="edu-timeline-content glass-card">
                         <div class="edu-header">
                             <h3>Matriculation (10th)</h3>
-                            <span class="edu-date-pill">2020 – 2021`</span>
+                            <span class="edu-date-pill">2020 – 2021</span>
                         </div>
                         <p class="edu-institute">Don Bosco High School, Siwan</p>
                         <p class="edu-score">Percentage: 84.6%</p>
