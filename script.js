@@ -81,14 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (elementTop < windowHeight - elementVisible) {
                 element.classList.add('active');
 
-                // Animate progress bars if they exist in this revealed element
-                const progressBars = element.querySelectorAll('.progress');
-                progressBars.forEach(bar => {
-                    const width = bar.getAttribute('data-width');
-                    if (width) {
-                        bar.style.width = width;
-                    }
-                });
+                // Element is revealed
             }
         });
     };
