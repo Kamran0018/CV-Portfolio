@@ -503,6 +503,165 @@ ul {
 }
 
 /* =========================================
+   About Section
+   ========================================= */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.about-image-container {
+    position: relative;
+}
+
+.about-image-glass {
+    padding: 1rem;
+    position: relative;
+    border-radius: 30px;
+}
+
+.about-img_secondary {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    animation: bounce 3s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.exp-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.exp-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-subtitle {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.about-description strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.about-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.focus-card {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.focus-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.focus-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.focus-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.about-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-count {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.about-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.about-actions .btn {
+    padding: 1rem 2.5rem;
+}
+
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .about-image-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+/* =========================================
    Skills Section
    ========================================= */
 .skills-wrapper {
@@ -1059,6 +1218,65 @@ ul {
     height: 4px;
     background: var(--secondary-color);
     border-radius: 2px;
+}
+
+/* =========================================
+   CV Section
+   ========================================= */
+.cv-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cv-card {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem;
+    text-align: left;
+}
+
+.cv-icon {
+    font-size: 5rem;
+    color: var(--primary-color);
+    background: rgba(212, 175, 55, 0.1);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    flex-shrink: 0;
+}
+
+.cv-text-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.cv-text-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.cv-action {
+    flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+    .cv-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .cv-icon {
+        margin: 0 auto;
+    }
 }
 
 
