@@ -899,13 +899,13 @@ ul {
     font-size: 0.85rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .project-info h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .project-info p {
@@ -944,7 +944,7 @@ ul {
 
 .project-list li {
     color: var(--text-main);
-    font-weight: 400;
+    font-weight: 300;
     font-size: 0.95rem;
     line-height: 1.6;
     position: relative;
