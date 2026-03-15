@@ -414,14 +414,14 @@ ul {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
-    transform: scale(1.1);
-    /* Adjust to focus on face instead of chest for standard portraits */
+    transform: scale(1.4);
+    transform-origin: center 20%;
+    object-position: center 20%;
     transition: var(--transition);
 }
 
 .profile-img-container:hover .profile-img {
-    transform: scale(1.05);
+    transform: scale(1.5);
 }
 
 @keyframes morph {
@@ -507,63 +507,12 @@ ul {
    ========================================= */
 .about-container {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr;
     gap: 4rem;
     align-items: center;
     margin-top: 2rem;
 }
 
-.about-image-container {
-    position: relative;
-}
-
-.about-image-glass {
-    padding: 1rem;
-    position: relative;
-    border-radius: 30px;
-}
-
-.about-img_secondary {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    object-fit: cover;
-    display: block;
-}
-
-.experience-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    padding: 1.5rem;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    z-index: 5;
-    animation: bounce 3s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.exp-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 800;
-    color: white;
-    line-height: 1;
-}
-
-.exp-text {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
 
 .about-subtitle {
     font-size: 1.8rem;
@@ -639,15 +588,6 @@ ul {
     font-weight: 500;
 }
 
-.about-actions {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-}
-
-.about-actions .btn {
-    padding: 1rem 2.5rem;
-}
 
 @media (max-width: 992px) {
     .about-container {
